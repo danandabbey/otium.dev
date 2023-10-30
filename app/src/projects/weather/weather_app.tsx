@@ -4,7 +4,6 @@ import Current from "./components/current";
 import TwelveHour from "./components/twelveHours";
 import Chart from "./components/chart/ChartCon";
 import Loading from "../../components/Loading";
-import ChartOpenButton from "./components/ChartOpenButton";
 import { localContext } from "../../App";
 import {
   styleContext,

@@ -2,7 +2,7 @@ import getData from "../data/weather/call";
 import bodyParser from "body-parser";
 import express from "express";
 
-const weather = (app: express.Application) => {
+function weather(app: express.Application) {
   app.use(bodyParser.json());
   app.use((_req, res: express.Response, next: express.NextFunction) => {
     try {
@@ -16,13 +16,15 @@ const weather = (app: express.Application) => {
   });
   app.post("/weather", async (req: express.Request, res: express.Response) => {
     try {
-      req.body ? console.log("working") : null;
-      const weatherData = await getData(await req.body);
-      res.send(await weatherData);
+      const weatherData = await getData(req.body);
+      res.status(200);
+      res.send(weatherData);
     } catch (error) {
       console.error(error);
+      res.status(500);
+      res.send("Internal Server Error");
     }
   });
-};
+}
 
 export default weather;
