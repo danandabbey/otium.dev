@@ -1,0 +1,55 @@
+{
+  correlationId: '5b82b217',
+  title: 'Unexpected Problem',
+  type: 'https://api.weather.gov/problems/UnexpectedProblem',
+  status: 500,
+  detail: 'An unexpected problem has occurred. If this error continues, please contact support at nco.ops@noaa.gov.',
+  instance: 'https://api.weather.gov/requests/5b82b217'
+}
+500
+Object [AxiosHeaders] {
+  server: 'nginx/1.20.1',
+  'content-type': 'application/problem+json',
+  'x-request-id': '976eef98-0cfe-4ebc-be8a-1c5c8369e2f7',
+  'x-correlation-id': '5b82b217',
+  'x-server-id': 'vm-lnx-nids-apiapp1.ncep.noaa.gov',
+  'access-control-allow-origin': '*',
+  'access-control-expose-headers': 'X-Correlation-Id, X-Request-Id, X-Server-Id',
+  pragma: 'no-cache',
+  'content-length': '338',
+  'cache-control': 'private, must-revalidate, max-age=3581',
+  expires: 'Mon, 30 Oct 2023 09:27:05 GMT',
+  date: 'Mon, 30 Oct 2023 08:27:24 GMT',
+  connection: 'keep-alive',
+  'x-edge-request-id': '66836e88',
+  vary: 'Accept,Feature-Flags,Accept-Language',
+  'strict-transport-security': 'max-age=31536000 ; includeSubDomains ; preload'
+}
+working
+{
+  correlationId: '5b82ff57',
+  title: 'Unexpected Problem',
+  type: 'https://api.weather.gov/problems/UnexpectedProblem',
+  status: 500,
+  detail: 'An unexpected problem has occurred. If this error continues, please contact support at nco.ops@noaa.gov.',
+  instance: 'https://api.weather.gov/requests/5b82ff57'
+}
+500
+Object [AxiosHeaders] {
+  server: 'nginx/1.20.1',
+  'content-type': 'application/problem+json',
+  'x-request-id': '73578bc7-6db9-466f-bdae-935f5d8c80cb',
+  'x-correlation-id': '5b82ff57',
+  'x-server-id': 'vm-lnx-nids-apiapp4.ncep.noaa.gov',
+  'access-control-allow-origin': '*',
+  'access-control-expose-headers': 'X-Correlation-Id, X-Request-Id, X-Server-Id',
+  pragma: 'no-cache',
+  'content-length': '338',
+  'cache-control': 'private, must-revalidate, max-age=3572',
+  expires: 'Mon, 30 Oct 2023 09:27:10 GMT',
+  date: 'Mon, 30 Oct 2023 08:27:38 GMT',
+  connection: 'keep-alive',
+  'x-edge-request-id': '66841058',
+  vary: 'Accept,Feature-Flags,Accept-Language',
+  'strict-transport-security': 'max-age=31536000 ; includeSubDomains ; preload'
+}

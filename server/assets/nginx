@@ -1,0 +1,29 @@
+server {
+    listen 80;
+    server_name otium.dev www.otium.dev;
+    return 301 https://otium.dev$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name otium.dev www.otium.dev;
+
+    ssl_certificate /etc/letsencrypt/live/otium.dev/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/otium.dev/privkey.pem;
+
+    location / {
+        proxy_pass http://localhost:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    location /weather {
+        proxy_pass http://localhost:5000;  # Assuming your Node.js server is running on the same host/port
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        # You can add other proxy settings specific to /weather here
+    }
+
+    error_log /var/log/nginx/otium.dev.error;
+    access_log /var/log/nginx/otium.dev.access;
+}
