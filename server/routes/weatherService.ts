@@ -6,7 +6,7 @@ const weather = (app: express.Application) => {
   app.use(bodyParser.json());
   app.use((_req, res: express.Response, next: express.NextFunction) => {
     try {
-      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Origin", "https://otium.dev");
       res.header("Access-Control-Allow-Methods", "GET, POST");
       res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
       next();
