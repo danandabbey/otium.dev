@@ -1,42 +1,24 @@
-import { useState, useEffect, useContext, createContext } from "react";
-import Loading from "./components/Loading";
-import { styleContext } from "./components/Context";
+import { useState, useEffect, createContext } from "react";
+import { useStyleContext } from "./components/Context";
 import Menu from "./components/menu/Menu";
 import Index from "./components/Index";
 import MenuButton from "./components/menu/OpenButton";
-export const localContext = createContext({});
 
-const App = (): JSX.Element => {
-  const globalLocal = true;
-  const [local, setLocal]: any = useState(globalLocal);
-  const [loading, setLoading]: any = useState(true);
-  const style = useContext(styleContext);
-  const [view, setView] = useState(<Loading />);
+function App(): JSX.Element {
+  const style = useStyleContext();
+  const [view, setView] = useState(<Index />);
   const [menuActive, setMenuActive] = useState(false);
 
-  useEffect(() => {
-    setView(<Index />);
-    setLoading(false);
-    setLocal(globalLocal);
-  }, []);
-
-  const menuControls = {
-    menu: setMenuActive,
-    view: setView,
-  };
-
   return (
-    <localContext.Provider value={local}>
-      <div style={style.app}>
-        {loading ? <Loading /> : view}
-        {menuActive ? (
-          <Menu controls={menuControls} />
-        ) : (
-          <MenuButton controls={setMenuActive} />
-        )}
-      </div>
-    </localContext.Provider>
+    <div style={style.app}>
+      {view}
+      {menuActive ? (
+        <Menu setMenu={setMenuActive} setView={setView} />
+      ) : (
+        <MenuButton controls={setMenuActive} />
+      )}
+    </div>
   );
-};
+}
 
 export default App;

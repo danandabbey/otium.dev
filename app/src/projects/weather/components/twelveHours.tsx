@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import { dataContext } from "../weather_app";
-import { styleContext } from "../../../components/Context";
+import { useDataContext } from "../weather_app";
+import { useStyleContext } from "../../../components/Context";
 
 const Forecast = (props: any) => {
   const { data } = props;
-  const style: any = useContext(styleContext);
+  const style: any = useStyleContext();
   const name = data.name;
   const precipitation = `${data.precipitation}% chance`;
   const temp = `${data.temp}\u00b0F`;
@@ -18,8 +17,8 @@ const Forecast = (props: any) => {
 };
 
 const TwelveHour = () => {
-  const style: any = useContext(styleContext);
-  const data: any = useContext(dataContext);
+  const style: any = useStyleContext();
+  const data: any = useDataContext();
   const twelveHourData: any = data.twelveHour;
   const day_time = twelveHourData.filter((obj: any) => obj.isDayTime === true);
   const five = day_time.slice(0, 5);

@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { styleContext } from "../Context";
+import { useStyleContext } from "../Context";
 
 const MenuButton = (props: any) => {
-  const style = useContext(styleContext);
+  const style = useStyleContext();
   const { controls } = props;
 
   return (

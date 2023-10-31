@@ -1,8 +1,8 @@
-import { styleContext } from "../Context";
-import { useContext, useState } from "react";
+import { useStyleContext } from "../Context";
+import { useState } from "react";
 
 const Button = (props: any) => {
-  const style = useContext(styleContext);
+  const style = useStyleContext();
   const { id, title } = props;
   const mobile: boolean = window.innerWidth <= 900;
 

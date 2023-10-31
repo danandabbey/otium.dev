@@ -1,13 +1,13 @@
-import { useState, useEffect, useContext } from "react";
-import { dataContext } from "../../weather_app";
-import { styleContext } from "../../../../components/Context";
+import { useState, useEffect } from "react";
+import { useDataContext } from "../../weather_app";
+import { useStyleContext } from "../../../../components/Context";
 import Chart from "./Chart";
 import Buttons from "./Buttons";
 
 const ChartCon = () => {
   const [currentChart, setCurrentData]: any = useState({});
-  const style: any = useContext(styleContext);
-  const data: any = useContext(dataContext);
+  const style: any = useStyleContext();
+  const data: any = useDataContext();
   const time: any = data.chart.time;
   const chartData: any = data.chart.chart;
 

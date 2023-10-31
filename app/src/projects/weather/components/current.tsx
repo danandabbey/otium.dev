@@ -1,11 +1,10 @@
-import { useContext } from "react";
-import { dataContext } from "../weather_app";
-import { styleContext } from "../../../components/Context";
+import { useDataContext } from "../weather_app";
+import { useStyleContext } from "../../../components/Context";
 
 const Current = () => {
   try {
-    const data: any = useContext(dataContext),
-      style: any = useContext(styleContext),
+    const data: any = useDataContext(),
+      style: any = useStyleContext(),
       currentData = {
         desc: data.current.description,
         precipitation: `${data.current.precipitation}% chance`,

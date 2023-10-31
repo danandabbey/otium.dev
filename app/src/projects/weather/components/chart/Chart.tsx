@@ -1,6 +1,5 @@
-import { useContext } from "react";
 import { Line } from "react-chartjs-2";
-import { styleContext } from "../../../../components/Context";
+import { useStyleContext } from "../../../../components/Context";
 
 import {
   Chart as ChartJS,
@@ -25,7 +24,7 @@ ChartJS.register(
 
 const Chart = (props: any) => {
   const { data, time, title } = props;
-  const style = useContext(styleContext);
+  const style = useStyleContext();
   const color: any = style.chart.color;
 
   let titleSize: number = 40;

@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { styleContext } from "./Context";
+import { useStyleContext } from "./Context";
 import React from "react";
 
 const index = () => {
-  const style = useContext(styleContext);
+  const style = useStyleContext();
 
   return (
     <div style={style.index}>

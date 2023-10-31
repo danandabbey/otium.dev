@@ -1,25 +1,26 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
+import { useStyleContext } from "../Context";
 import WeatherApp from "../../projects/weather/weather_app";
-import { styleContext } from "../Context";
 import Index from "../Index";
 import MenuButton from "./MenuButton";
 
 const Menu = (props: any) => {
-  const style = useContext(styleContext);
-  const controls = props.controls;
+  const { setMenu, setView } = props;
+
+  const style = useStyleContext();
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       const id = (e.target as HTMLDivElement).id;
       if (id === "home") {
-        controls.menu(false);
-        controls.view(<Index />);
+        setMenu(false);
+        setView(<Index />);
       } else if (id === "weather") {
-        controls.menu(false);
-        controls.view(<WeatherApp />);
+        setMenu(false);
+        setView(<WeatherApp />);
       } else {
         if (id !== "menuButton" && id !== "weather" && id !== "home")
-          controls.menu(false);
+          setMenu(false);
       }
     };
 
@@ -27,7 +28,7 @@ const Menu = (props: any) => {
     return () => {
       document.removeEventListener("click", handleClick);
     };
-  }, [controls]);
+  }, [props]);
 
   const buttons = [
     {
@@ -44,12 +45,8 @@ const Menu = (props: any) => {
     <div style={style.menu} id="menu">
       {buttons.map((button) => {
         return (
-          <MenuButton
-            key={button.title}
-            id={button.id}
-            title={button.title}
-          />
-        )
+          <MenuButton key={button.title} id={button.id} title={button.title} />
+        );
       })}
     </div>
   );
