@@ -7,7 +7,7 @@ import MenuButton from "./components/menu/OpenButton";
 export const localContext = createContext({});
 
 const App = (): JSX.Element => {
-  const globalLocal = false;
+  const globalLocal = true;
   const [local, setLocal]: any = useState(globalLocal);
   const [loading, setLoading]: any = useState(true);
   const style = useContext(styleContext);

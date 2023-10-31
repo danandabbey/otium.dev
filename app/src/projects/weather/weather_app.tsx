@@ -34,7 +34,10 @@ function weather_app() {
   useEffect(() => {
     const fetchData: any = async () => {
       if (location) {
-        let data = { lat: location.latitude, lon: location.longitude };
+        let data = {
+          lat: location.latitude,
+          lon: location.longitude
+        };
         const resp: any = await axios
           .post(serverURL, data)
           .catch((error) => {
