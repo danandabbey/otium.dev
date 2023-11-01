@@ -8,7 +8,12 @@ const app: express.Application = express();
 const port = 5000;
 
 try {
-  app.use(cors());
+  app.use(
+    cors({
+      origin: "*",
+      methods: "GET,POST",
+    })
+  );
   app.use(bodyParser.json());
   const server = http.createServer(app);
 
