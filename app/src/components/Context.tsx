@@ -1,6 +1,7 @@
 import { useState, useEffect, createContext, useContext } from "react";
 import styles from "../assets/styles/css";
 import { handleLocation } from "../assets/util";
+import local_context from "../../../localContext";
 
 const styleContext = createContext({}),
   locationContext = createContext({}),
@@ -8,7 +9,7 @@ const styleContext = createContext({}),
   localContext = createContext({});
 
 const ContextProvider = ({ children }) => {
-  const globalLocal = false;
+  const globalLocal = local_context;
   const [style, setStyle]: any = useState(styles),
     [location, setLocation]: any = useState(undefined),
     [local, setLocal]: any = useState(undefined);
