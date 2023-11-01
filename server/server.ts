@@ -1,14 +1,15 @@
 import express from "express";
 import http from "http";
-import bodyParser from "body-parser";
 import weather from "./routes/weatherService";
+import bodyParser from "body-parser";
 
 const app: express.Application = express();
 const port = 5000;
 
 try {
+  weather(app);
   app.use(bodyParser.json());
-  app.use((_req, res, next) => {
+  app.use((_req, res: express.Response, next: express.NextFunction) => {
     try {
       res.header("Access-Control-Allow-Origin", "*");
       res.header("Access-Control-Allow-Methods", "GET, POST");
@@ -17,11 +18,12 @@ try {
     } catch (error) {
       console.error(error);
     }
-    const server = http.createServer(app);
-    weather(app);
-    server.listen(port, () => {
-      console.log(`Server is running on port ${port}`);
-    });
+  });
+
+  const server = http.createServer(app);
+
+  server.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
   });
 } catch (err) {
   console.log(err);
