@@ -1,8 +1,8 @@
 import { useStyleContext } from "../Context";
 
 const MenuButton = (props: any) => {
-  const style = useStyleContext();
   const { controls } = props;
+  const style = useStyleContext();
 
   return (
     <div style={style.menuOpenButton}>

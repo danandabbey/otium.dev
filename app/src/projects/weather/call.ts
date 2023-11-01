@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const fetchData: any = async (local, location) => {
+const fetchData: any = async (local: any, location: any) => {
   let ip = "";
   let serverURL = ``;
   if (local) {
@@ -30,7 +30,6 @@ const fetchData: any = async (local, location) => {
       })
       .then((response) => response);
     try {
-      console.log(resp);
       if (resp.data) {
         return resp.data;
       }

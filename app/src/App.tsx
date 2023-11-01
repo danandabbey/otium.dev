@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext } from "react";
+import { useState } from "react";
 import { useStyleContext } from "./components/Context";
 import Menu from "./components/menu/Menu";
 import Index from "./components/Index";

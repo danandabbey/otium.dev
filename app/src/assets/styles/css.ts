@@ -18,6 +18,7 @@ const mobile: boolean = window.innerWidth <= 900;
 
 const styles: { [key: string]: CSSProperties } = {
   /************************************* Global *************************************/
+
   app: {
     display: "flex",
     flexDirection: "column",
@@ -50,6 +51,8 @@ const styles: { [key: string]: CSSProperties } = {
   menu: {
     display: "flex",
     flexWrap: "wrap",
+    backgroundColor: mobile ? backgroundColor : "none",
+    paddingBottom: "1em",
     alignItems: "center",
     flexDirection: "column",
     position: "fixed",
@@ -73,6 +76,7 @@ const styles: { [key: string]: CSSProperties } = {
   menuOpenButton: {
     fontSize: mobile ? "10px" : "100%",
     paddingRight: mobile ? "2em" : "3em",
+    paddingBottom: "1em",
     position: "fixed",
     right: "0",
     bottom: "0",
@@ -84,6 +88,7 @@ const styles: { [key: string]: CSSProperties } = {
   },
 
   /************************************* Loading *************************************/
+
   loading: {
     justifyContent: "center",
     textAlign: "center",
@@ -96,7 +101,9 @@ const styles: { [key: string]: CSSProperties } = {
     textAlign: "center",
     fontSize: mobile ? "4em" : "5em",
   },
+
   /************************************* CustomError *************************************/
+
   ErrorContainer: {
     justifyContent: "center",
     textAlign: "center",
@@ -129,6 +136,21 @@ const styles: { [key: string]: CSSProperties } = {
     height: "100%",
   },
 
+  /* Chart Open Button */
+
+  chartOpenButtonCon: {
+    justifyContent: "center",
+    alignItems: "center",
+    display: "flex",
+    width: mobile ? "100%" : "",
+    borderTop: `solid 2px ${mainColor}`,
+    borderBottom: `solid 2px ${mainColor}`,
+  },
+  chartOpenButton: {
+    fontSize: "30px",
+    color: mainColor,
+  },
+
   /* Current */
 
   currentTitle: {
@@ -147,7 +169,6 @@ const styles: { [key: string]: CSSProperties } = {
     textAlign: "center",
     marginBlock: "0px",
     marginBottom: "2em",
-    marginTop: "2em",
   },
   currentItem: {
     padding: "10px",

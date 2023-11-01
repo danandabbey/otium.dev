@@ -8,32 +8,21 @@ const styleContext = createContext({}),
   localContext = createContext({});
 
 const ContextProvider = ({ children }) => {
-  const globalLocal = true;
+  const globalLocal = false;
   const [style, setStyle]: any = useState(styles),
-    [mobile, setMobile]: any = useState(window.innerWidth <= 900),
-    [location, setLocation]: any = useState({}),
-    [local, setLocal]: any = useState({});
+    [location, setLocation]: any = useState(undefined),
+    [local, setLocal]: any = useState(undefined);
 
   useEffect(() => {
     handleLocation(setLocation);
     setStyle(styles);
     setLocal(globalLocal);
-
-    const handleResize = () => {
-      setMobile(window.innerWidth <= 900);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <localContext.Provider value={local}>
       <locationContext.Provider value={location}>
-        <mobileContext.Provider value={mobile}>
-          <styleContext.Provider value={style}>
-            {children}
-          </styleContext.Provider>
-        </mobileContext.Provider>
+        <styleContext.Provider value={style}>{children}</styleContext.Provider>
       </locationContext.Provider>
     </localContext.Provider>
   );
@@ -41,23 +30,23 @@ const ContextProvider = ({ children }) => {
 
 function useStyleContext() {
   const style = useContext(styleContext);
-  if (!style) {
+  if (style) {
+    return style;
   }
-  return style;
 }
 
 function useLocationContext() {
   const location = useContext(locationContext);
-  if (!location) {
+  if (location) {
+    return location;
   }
-  return location;
 }
 
 function useMobileContext() {
   const mobile = useContext(mobileContext);
-  if (!mobile) {
+  if (mobile) {
+    return mobile;
   }
-  return mobile;
 }
 
 export {
