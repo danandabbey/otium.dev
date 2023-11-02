@@ -1,4 +1,3 @@
-# otium.dev
 
 At this time this is a simple weather app, I hope to add more functionality
 in the future. You can clone this package and follow the steps below to use the 
