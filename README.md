@@ -1,4 +1,4 @@
-At this time this is a simple weather and new headline app, I hope to add more 
+At this time this is a simple weather and news headline app, I hope to add more 
 functionality in the future. You can clone this package and follow the steps 
 below to use the app.
 
