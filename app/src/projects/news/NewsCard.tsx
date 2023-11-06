@@ -1,42 +1,35 @@
 import React from "react";
+import { useStyleContext } from "../../components/Context";
 
 function NewsCard(props): React.Component {
-  const { image, headline, summary } = props;
-
-  const style = {
-    headline: {},
-
-    newsCard: {
-      width: "20em",
-      height: "20em",
-    },
-    newsHeadline: {
-      fontSize: "50px",
-    },
-    newsSummary: {
-      fontSize: "30px",
-    },
-    newsImage: {
-      width: "100%",
-      height: "auto",
-    },
-    newsImageCon: {
-      width: "100%",
-      height: "auto",
-      display: "flex",
-    },
-    newsText: {
-      padding: "1em",
-    },
-  };
-
-  /*  return (
+  const { webUrl, webTitle } = props;
+  const style = useStyleContext();
+  return (
     <div style={style.newsCard}>
-      <div style={style.newsImageCon}>{image}</div>
       <div style={style.newsText}>
-        <h1 style={style.headline}> {headline} </h1>
-        <p style={style.newsSummary}> {summary} </p>
+        <a style={style.link} href={webUrl}>
+          <h1 style={style.newsHeadline}> {webTitle} </h1>
+        </a>
       </div>
     </div>
-  );*/
+  );
 }
+
+export default NewsCard;
+
+/*
+result object:
+  {
+    id: 'world/2023/nov/05/ceasefire-or-humanitarian-pause-the-bitter-debate-on-the-best-route-to-peace',
+    type: 'article',
+    sectionId: 'world',
+    sectionName: 'World news',
+    webPublicationDate: '2023-11-05T19:12:15Z',
+    webTitle: 'Most agree Gaza needs help – but there’s fierce disagreement on how to deliver it',
+    webUrl: 'https://www.theguardian.com/world/2023/nov/05/ceasefire-or-humanitarian-pause-the-bitter-debate-on-the-best-route-to-peace',
+    apiUrl: 'https://content.guardianapis.com/world/2023/nov/05/ceasefire-or-humanitarian-pause-the-bitter-debate-on-the-best-route-to-peace',
+    isHosted: false,
+    pillarId: 'pillar/news',
+    pillarName: 'News'
+  },
+*/

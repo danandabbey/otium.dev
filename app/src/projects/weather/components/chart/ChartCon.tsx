@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useDataContext } from "../../weather_app";
+import { useDataContext } from "../../WeatherApp";
 import { useStyleContext } from "../../../../components/Context";
 import Chart from "./Chart";
 import Buttons from "./Buttons";
@@ -51,6 +51,7 @@ const ChartCon = () => {
     <div style={style.chartCon}>
       <div style={style.chart_and_buttons}>
         <Chart
+          style={style.chart}
           time={time}
           title={currentChart.title}
           data={currentChart.data}

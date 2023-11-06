@@ -23,7 +23,7 @@
   },
   "include": [
     "src/**/*.ts",
-    "src/projects/news/guardian.ts",
+    "src/projects/news/guardian.js",
     "src/projects/news/NewsCard.txs"
   ],
   "references": [{ "path": "./tsconfig.node.json" }],

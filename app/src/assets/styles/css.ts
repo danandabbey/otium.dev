@@ -24,10 +24,10 @@ const styles: { [key: string]: CSSProperties } = {
     flexDirection: "column",
     color: mainColor,
     backgroundColor: backgroundColor,
+    accentColor: accentColor,
     fontSize: mobile ? "1.2em" : "1.3em",
     letterSpacing: ".1px",
     overflowX: "hidden",
-    accentColor: accentColor,
     width: "100%",
     height: "100%",
   },
@@ -41,7 +41,7 @@ const styles: { [key: string]: CSSProperties } = {
   /************************************* Index *************************************/
 
   title: {
-    fontSize: mobile ? "100px" : "250px",
+    fontSize: mobile ? "50px" : "100px",
     color: mainColor,
     paddingBottom: "1em",
   },
@@ -50,9 +50,8 @@ const styles: { [key: string]: CSSProperties } = {
 
   menu: {
     display: "flex",
-    flexWrap: "wrap",
     backgroundColor: mobile ? backgroundColor : "none",
-    paddingBottom: "1em",
+    paddingBottom: mobile ? "1em" : "2em",
     alignItems: "center",
     flexDirection: "column",
     position: "fixed",
@@ -63,19 +62,9 @@ const styles: { [key: string]: CSSProperties } = {
     height: mobile ? "auto" : "20%",
     zIndex: "1",
   },
-
-  menuItem: {
-    textAlign: "center",
-    color: mainColor,
-    fontSize: mobile ? "40px" : "60px",
-    width: "100%",
-    height: "50%",
-    marginBlock: "0px",
-  },
-
   menuOpenButton: {
     fontSize: mobile ? "10px" : "100%",
-    paddingRight: mobile ? "2em" : "3em",
+    paddingRight: "2em",
     paddingBottom: "1em",
     position: "fixed",
     right: "0",
@@ -135,22 +124,6 @@ const styles: { [key: string]: CSSProperties } = {
     width: "100%",
     height: "100%",
   },
-
-  /* Chart Open Button */
-
-  chartOpenButtonCon: {
-    justifyContent: "center",
-    alignItems: "center",
-    display: "flex",
-    width: mobile ? "100%" : "",
-    borderTop: `solid 2px ${mainColor}`,
-    borderBottom: `solid 2px ${mainColor}`,
-  },
-  chartOpenButton: {
-    fontSize: "30px",
-    color: mainColor,
-  },
-
   /* Current */
 
   currentTitle: {
@@ -168,7 +141,7 @@ const styles: { [key: string]: CSSProperties } = {
     alignItems: "center",
     textAlign: "center",
     marginBlock: "0px",
-    marginBottom: "2em",
+    marginBottom: "5em",
   },
   currentItem: {
     padding: "10px",
@@ -178,11 +151,15 @@ const styles: { [key: string]: CSSProperties } = {
 
   /* Chart */
 
+  chart_and_buttons: {
+    width: mobile ? "100%" : "70%",
+    display: "flex",
+    flexDirection: "column",
+    paddingTop: "1em",
+    paddingBottom: "1em",
+  },
   chart: {
-    accentColor: accentColor,
     color: mainColor,
-    borderTop: `solid ${mainColor} .1em`,
-    borderBottom: `solid ${mainColor} .1em`,
     paddingLeft: ".5em",
   },
   chartCon: {
@@ -192,7 +169,7 @@ const styles: { [key: string]: CSSProperties } = {
     alignItems: "center",
   },
   chartBtnCon: {
-    gap: mobile ? "1em" : "2em",
+    gap: mobile ? ".5em" : "2em",
     paddingTop: "1em",
     paddingBottom: "1em",
     display: "flex",
@@ -200,21 +177,30 @@ const styles: { [key: string]: CSSProperties } = {
     flexWrap: "wrap",
     justifyContent: "center",
   },
-  chart_and_buttons: {
-    width: "70%",
-    display: "flex",
-    flexDirection: "column",
-  },
 
   /* Twelve-Hour */
 
+  twelveHourTitle: {
+    fontSize: mobile ? "40px" : "60px",
+    color: mainColor,
+    marginBlock: "0px",
+    padding: "10px",
+  },
+  twelveHourCon: {
+    color: mainColor,
+    alignItems: "center",
+    justifyContent: "center",
+    display: "flex",
+    flexDirection: "column",
+    paddingTop: "5em",
+    paddingBottom: mobile ? "0em" : "10em",
+  },
   twelveHour: {
     color: mainColor,
     alignItems: "center",
     justifyContent: "center",
     display: "flex",
     flexWrap: "wrap",
-    paddingBottom: mobile ? "0em" : "10em",
   },
   forecast: {
     color: mainColor,
@@ -227,6 +213,7 @@ const styles: { [key: string]: CSSProperties } = {
     fontSize: mobile ? "20px" : "30px",
   },
   forecast_name: {
+    color: mainColor,
     fontSize: mobile ? "30px" : "50px",
     padding: "20px",
     marginBlock: "0px",
@@ -235,6 +222,54 @@ const styles: { [key: string]: CSSProperties } = {
     fontSize: mobile ? "20px" : "30px",
     marginBlock: "0px",
     padding: "10px",
+  },
+
+  /************************************* News *************************************/
+
+  news: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  newsCardDisplay: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    overflowX: "hidden",
+    width: "100%",
+    height: "100%",
+  },
+  newsTitle: {
+    fontSize: mobile ? "40px" : "50px",
+    marginBlock: "0px",
+    padding: "1em",
+  },
+  newsCard: {
+    width: "20em",
+    height: "20em",
+  },
+  newsHeadline: {
+    color: mainColor,
+    fontSize: "30px",
+    textDecoration: "none",
+  },
+  newsSummary: {
+    fontSize: "30px",
+  },
+  newsImage: {
+    width: "100%",
+    height: "auto",
+  },
+  newsImageCon: {
+    width: "100%",
+    height: "auto",
+    display: "flex",
+  },
+  newsText: {
+    padding: "1em",
+  },
+  link: {
+    textDecoration: "none",
+    color: mainColor,
   },
 };
 

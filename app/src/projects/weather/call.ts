@@ -1,13 +1,13 @@
 import axios from "axios";
+import { localContext } from "../../components/Context";
 
-const fetchData: any = async (local: any, location: any) => {
-  let ip = "";
-  let serverURL = ``;
+const fetchData: any = async (location: any) => {
+  const local = localContext;
+  let serverURL = "";
   if (local) {
     serverURL = `http://localhost:5000/weather`;
   } else {
-    ip = "api.otium.dev";
-    serverURL = `https://${ip}/weather`;
+    serverURL = `https://api.otium.dev/weather`;
   }
 
   if (location) {
@@ -15,20 +15,17 @@ const fetchData: any = async (local: any, location: any) => {
       lat: location.latitude,
       lon: location.longitude,
     };
-    const resp: any = await axios
-      .post(serverURL, data)
-      .catch((error) => {
-        if (error.response) {
-          console.error(error.response.data);
-          console.error(error.response.status);
-          console.error(error.response.headers);
-        } else if (error.request) {
-          console.error(error.request);
-        } else {
-          console.error("Error", error.message);
-        }
-      })
-      .then((response) => response);
+    const resp: any = await axios.post(serverURL, data).catch((error) => {
+      error.response
+        ? console.error(
+            error.response.data,
+            error.response.status,
+            error.response.headers
+          )
+        : error.request
+        ? console.error(error.request)
+        : console.error("Error", error.message);
+    });
     try {
       if (resp.data) {
         return resp.data;

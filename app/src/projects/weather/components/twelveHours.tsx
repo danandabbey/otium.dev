@@ -1,4 +1,4 @@
-import { useDataContext } from "../weather_app";
+import { useDataContext } from "../WeatherApp";
 import { useStyleContext } from "../../../components/Context";
 
 const Forecast = (props: any) => {
@@ -23,10 +23,13 @@ const TwelveHour = () => {
   const day_time = twelveHourData.filter((obj: any) => obj.isDayTime === true);
   const five = day_time.slice(0, 5);
   return (
-    <div style={style.twelveHour}>
-      {five.map((obj: any) => {
-        return <Forecast key={obj.name} data={obj} />;
-      })}
+    <div style={style.twelveHourCon}>
+      <h1 style={style.twelveHourTitle}>Daily Forecast</h1>
+      <div style={style.twelveHour}>
+        {five.map((obj: any) => {
+          return <Forecast key={obj.name} data={obj} />;
+        })}
+      </div>
     </div>
   );
 };

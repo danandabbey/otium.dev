@@ -23,12 +23,14 @@ ChartJS.register(
 );
 
 const Chart = (props: any) => {
+  const mobile: boolean = window.innerWidth <= 900;
+
   const { data, time, title } = props;
   const style = useStyleContext();
   const color: any = style.chart.color;
 
-  let titleSize: number = 40;
-  let fontSize: number = 20;
+  let titleSize: number = mobile ? 30 : 60;
+  let fontSize: number = mobile ? 12 : 20;
   const options = {
     responsive: true,
     layout: {
@@ -44,7 +46,6 @@ const Chart = (props: any) => {
         font: {
           size: titleSize,
         },
-        padding: 20,
         color: color,
       },
     },
@@ -98,7 +99,7 @@ const Chart = (props: any) => {
       },
     ],
   };
-  return <Line style={style.chart} data={chartData} options={options} />;
+  return <Line data={chartData} options={options} />;
 };
 
 export default Chart;

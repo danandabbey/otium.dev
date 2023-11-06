@@ -1,7 +1,8 @@
-import { useDataContext } from "../weather_app";
+import React from "react";
+import { useDataContext } from "../WeatherApp";
 import { useStyleContext } from "../../../components/Context";
 
-const Current = () => {
+const Current = (): React.Component => {
   try {
     const data: any = useDataContext(),
       style: any = useStyleContext(),

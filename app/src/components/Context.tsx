@@ -1,7 +1,6 @@
-import { useState, useEffect, createContext, useContext } from "react";
+import React, { useState, useEffect, createContext, useContext } from "react";
 import styles from "../assets/styles/css";
 import { handleLocation } from "../assets/util";
-import local_context from "../../../localContext";
 
 const styleContext = createContext({}),
   locationContext = createContext({}),
@@ -9,15 +8,15 @@ const styleContext = createContext({}),
   localContext = createContext({});
 
 const ContextProvider = ({ children }) => {
-  const globalLocal = local_context;
-  const [style, setStyle]: any = useState(styles),
-    [location, setLocation]: any = useState(undefined),
-    [local, setLocal]: any = useState(undefined);
+  const globalLocal = true;
+  const [style, setStyle]: React.SetStateAction<any> = useState(styles),
+    [location, setLocation]: React.SetStateAction<any> = useState(undefined),
+    [local, setLocal]: React.SetStateAction<any> = useState(globalLocal);
 
   useEffect(() => {
+    setLocal(globalLocal);
     handleLocation(setLocation);
     setStyle(styles);
-    setLocal(globalLocal);
   }, []);
 
   return (
@@ -51,8 +50,8 @@ function useMobileContext() {
 }
 
 export {
-  localContext,
   ContextProvider,
+  localContext,
   useStyleContext,
   useLocationContext,
   useMobileContext,

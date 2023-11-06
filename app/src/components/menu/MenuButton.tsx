@@ -11,24 +11,22 @@ const Button = (props: any) => {
   const handleMouseLeave = () => setIsHovered(false);
 
   const styles: any = {
-    ButtonStyle: {
-      textAlign: "center",
-      color: style.app.color,
-      fontSize: mobile ? "40px" : "60px",
-      width: "100%",
-      height: "50%",
-      marginBlock: "0px",
-    },
+    textAlign: mobile ? "center" : "right",
+    color: style.app.color,
+    fontSize: mobile ? "40px" : "60px",
+    paddingRight: mobile ? "" : "1em",
+    width: "100%",
+    height: "50%",
+    marginBlock: "0px",
   };
 
   isHovered
-    ? (styles.ButtonStyle.color = style.app.accentColor)
-    : (styles.ButtonStyle.color = style.app.color);
-  isHovered;
+    ? (styles.color = style.app.accentColor)
+    : (styles.color = style.app.color);
 
   if (mobile) {
     return (
-      <h4 id={id} style={styles.ButtonStyle}>
+      <h4 id={id} style={styles}>
         {title}
       </h4>
     );
@@ -36,7 +34,7 @@ const Button = (props: any) => {
     return (
       <h4
         id={id}
-        style={styles.ButtonStyle}
+        style={styles}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >

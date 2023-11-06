@@ -10,21 +10,21 @@ const Button = (props: any) => {
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
 
+  const mainColor = style.app.color;
+  const accentColor = style.app.accentColor;
+
   const ButtonStyle = {
-    color: style.chart.color,
-    accentColor: style.chart.accentColor,
-    fontSize: mobile ? "25px" : "40px",
+    border: `1px solid ${isHovered ? accentColor : mainColor}`,
+    borderRadius: "5px",
+    color: isHovered ? accentColor : mainColor,
+    fontSize: mobile ? "20px" : "40px",
     padding: ".3em",
     marginBlock: "0px",
   };
 
-  isHovered
-    ? (ButtonStyle.color = style.chart.accentColor)
-    : (ButtonStyle.color = style.chart.color);
-
   if (mobile) {
     return (
-      <div id={"button"} style={ButtonStyle}>
+      <div id={"button"}>
         <h6 style={ButtonStyle} onClick={clickFunction}>
           {title}
         </h6>
@@ -32,7 +32,7 @@ const Button = (props: any) => {
     );
   } else {
     return (
-      <div id={"button"} style={ButtonStyle}>
+      <div id={"button"}>
         <h6
           style={ButtonStyle}
           onMouseEnter={handleMouseEnter}
